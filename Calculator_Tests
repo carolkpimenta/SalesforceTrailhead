@@ -1,0 +1,95 @@
+@isTest
+   public class Calculator_Tests {
+
+@isTest
+ public static void addition() {
+    Calculator.addition(1, 0);
+   }
+@isTest
+  public static void subtraction() {
+    Calculator.subtraction(1, 0);
+   }
+       @isTest public static void DivisionTest()
+    {
+        Decimal div= Calculator.divide(12, 7);
+        system.assertNotEquals(div,0);  
+    }
+
+@isTest public static void NegativeResultExceptionTest()
+    { 
+        List<Boolean> exceptions = new List<Boolean>();
+        try{
+       Calculator.divide(-12, 3);
+           } 
+     catch(Calculator.CalculatorException awe){
+  
+          if(awe.getMessage().equalsIgnoreCase('Division returned a negative value.-4')){
+            exceptions.add(true);
+          }
+  }
+           system.assertNotEquals(null, exceptions, 'expected at least one exception to have occured');
+     
+    }
+           @isTest public static void DivisionByZeroExceptionTest()
+    { 
+        List<Boolean> exceptions = new List<Boolean>();
+        try{
+       Calculator.divide(12, 0);
+           } 
+     catch(Calculator.CalculatorException awe){
+  {
+          if(awe.getMessage().equalsIgnoreCase('you still can\'t divide by zero')){
+            exceptions.add(true);
+          }
+  }
+           system.assertNotEquals(null, exceptions, 'expected at least one exception to have occured');}
+    }
+       
+       @isTest public static void PositiveMultiplicationTest()
+    {
+        Integer multi= Calculator.multiply(12, 7);
+        system.assertEquals(multi,84); 
+    }
+
+@isTest
+public static void multiply_by_one() {
+  Boolean caught = false;
+  try {
+    Calculator.multiply(1, 0);
+    } catch (Calculator.CalculatorException e) {
+    System.assertEquals('It doesn\'t make sense to multiply by zero', 
+    e.getMessage(), 'caught the right exception');
+     caught = true;
+    }
+    System.assert(caught, 'threw expected exception');
+  }
+
+@isTest
+ public static void multiply_by_two() {
+  Boolean caught = true;
+  try {
+     Calculator.multiply(1, 2);
+   } catch (Calculator.CalculatorException e) {
+    System.assertEquals('It doesn\'t make sense to multiply by zero', 
+  e.getMessage(), 'caught the right exception');
+    caught = true;
+   }
+   System.assert(caught, 'threw expected exception');
+}   
+
+@isTest public static void multiplicationExceptionTest()
+    { 
+        List<Boolean> exceptions = new List<Boolean>();
+        try{
+        Integer multi= Calculator.multiply(12, 0);
+           } 
+     catch(Calculator.CalculatorException awe){
+  {
+          if(awe.getMessage().equalsIgnoreCase('It doesn\'t make sense to multiply by zero')){
+            exceptions.add(true);
+          }
+  }   
+     
+    system.assertNotEquals(null, exceptions, 'expected at least one exception to have occured');}
+    }
+}
