@@ -1,4 +1,3 @@
-Test class:
 @isTest
 public class AccountProcessorTest {
     @isTest
