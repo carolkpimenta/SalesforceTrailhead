@@ -1,23 +1,11 @@
-public class AccountHandler {
-
-    Public static Void insertAccount(integer n){
-      List<Account> addAccounts = new List<Account>();
- Integer i = 1;
- While(i <= n) {
- System.debug('Value before Incrementing ' + i);
- 
- Account objacc = new Account();
- objacc.Name = 'Acme Inc '+i;
- objacc.AccountNumber = 'A000'+i;
- addAccounts.add(objacc);    
- i=i+1;
- 
- System.debug('Value after Incrementing ' + i);           
- }
- 
-Insert addAccounts;
- System.debug('The list of Accounts are' + addAccounts);
- 
- //Return addAccounts;
- }
- }
+public class AccountHandler { 
+public static void insertAccount(Integer value)     {   
+List <Account> addAccounts=new  List <Account>();       
+Integer counter=1;       
+while (counter<=value)          {     
+Account acc=new Account();          
+acc.Name='Acme Inc'+counter;        
+acc.AccountNumber='A000'+counter;      
+addAccounts.add(acc);        
+counter++;          }      
+insert addAccounts;          }   }
