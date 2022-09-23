@@ -1,19 +1,16 @@
 @isTest
-global class ParkServiceMock implements WebServiceMock {
-   global void doInvoke(
-           Object stub,
-           Object request,
-           Map<String, Object> response,
-           String endpoint,
-           String soapAction,
-           String requestName,
-           String responseNS,
-           String responseName,
-           String responseType) {
-        // start - specify the response you want to send
-        parkService.byCountryResponse response_x = new parkService.byCountryResponse();
-        response_x.return_x = new List<String>{'Parana', 'Fortaleza', 'Minas Gerais'};
-               // end
-        response.put('response_x', response_x); 
-   }
+private class ParkLocatorTest {
+    @isTest static void testCallout() {              
+        // This causes a fake response to be generated
+        Test.setMock(WebServiceMock.class, new ParkServiceMock());
+        // Call the method that invokes a callout
+  
+        
+        String country = 'Brazil';
+    
+        
+        
+        
+        System.assertEquals(new List<String>{'Parana', 'Fortaleza', 'Minas Gerais'},     ParkLocator.country(country)); 
+    }
 }
