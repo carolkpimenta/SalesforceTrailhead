@@ -1,0 +1,17 @@
+@isTest
+public class TestVerifyDate {
+    @isTest static void testCheckDateTrue(){
+        Date d1 = date.today();
+        Date d2 = d1.addDays(29);
+        Date t = VerifyDate.CheckDates(d1, d2);
+        System.assertEquals(t, d2); 
+    }
+    
+@isTest static void DateOver(){
+        Date d1 = date.today();
+        Date d2 = d1.addDays(31);
+        Date t = VerifyDate.CheckDates(d1, d2);
+        System.assertNotEquals(t, d1);
+    }
+       
+}
